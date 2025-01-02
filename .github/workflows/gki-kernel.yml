@@ -113,6 +113,11 @@ jobs:
           fi
           repo --version
           repo --trace sync -c -j$(nproc --all) --no-tags
+          echo "[+] JetEcho Replace namespace.c driver"
+          GKI_ROOT=$(pwd)
+          echo "[+] JetEcho Replace namespcae.c from $GKI_ROOT/common/fs/namespace.c"
+          cp $GITHUB_WORKSPACE/KernelSU/namespace.c $GKI_ROOT/common/fs/namespace.c
+          echo "[+] JetEcho  all finish !"
           df -h
 
 #      - name: Setup KernelSU
@@ -199,8 +204,8 @@ jobs:
         working-directory: android-kernel
         run: |
           rm common/android/abi_gki_protected_exports_* || echo "No protected exports!"
-          git config --global user.email "bot@kernelsu.org"
-          git config --global user.name "KernelSUBot"
+          git config --global user.email "tanzhifu789@163.com"
+          git config --global user.name "jetecho"
           cd common/ && git add -A && git commit -a -m "Add KernelSU"
           repo status
 
