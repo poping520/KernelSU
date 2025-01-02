@@ -236,9 +236,9 @@ jobs:
           else
             cp $OUTDIR/Image ./output/
             cp $OUTDIR/Image.lz4 ./output/
-            git clone https://github.com/Kernel-SU/AnyKernel3
-            rm -rf ./AnyKernel3/.git
-            cp $OUTDIR/Image ./AnyKernel3/
+#            git clone https://github.com/Kernel-SU/AnyKernel3
+#            rm -rf ./AnyKernel3/.git
+#            cp $OUTDIR/Image ./AnyKernel3/
           fi
 
       - name: Upload Image and Image.gz
@@ -248,12 +248,12 @@ jobs:
           name: Image-${{ inputs.version_name }}_${{ inputs.os_patch_level }}
           path: ./output/*
 
-      - name: Upload AnyKernel3
-        if: ${{ inputs.build_lkm == false }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: AnyKernel3-${{ inputs.version_name }}_${{ inputs.os_patch_level }}
-          path: ./AnyKernel3/*
+#      - name: Upload AnyKernel3
+#        if: ${{ inputs.build_lkm == false }}
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: AnyKernel3-${{ inputs.version_name }}_${{ inputs.os_patch_level }}
+#          path: ./AnyKernel3/*
 
       - name: Upload LKM
         uses: actions/upload-artifact@v4
