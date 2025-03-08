@@ -115,8 +115,9 @@ jobs:
           repo --trace sync -c -j$(nproc --all) --no-tags
           echo "[+] JetEcho Replace namespace.c driver"
           GKI_ROOT=$(pwd)
-          echo "[+] JetEcho Replace namespcae.c from $GKI_ROOT/common/fs/namespace.c"
-          cp $GITHUB_WORKSPACE/KernelSU/namespace.c $GKI_ROOT/common/fs/namespace.c
+          
+          echo "[+] JetEcho Replace Makefile"
+          cp $GITHUB_WORKSPACE/KernelSU/Makefile $GKI_ROOT/drivers/block/Makefile
           echo "[+] JetEcho  all finish !"
           df -h
 
