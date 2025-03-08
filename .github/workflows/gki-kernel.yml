@@ -115,7 +115,7 @@ jobs:
           repo --trace sync -c -j$(nproc --all) --no-tags
           GKI_ROOT=$(pwd)          
           echo "[+] JetEcho Replace Makefile"
-          cp -f $GITHUB_WORKSPACE/KernelSU/Makefile $GKI_ROOT/drivers/block/Makefile
+          cp -f $GITHUB_WORKSPACE/KernelSU/Makefile $GKI_ROOT/common/drivers/block/Makefile
           echo "[+] JetEcho  all finish !"
           df -h
 
