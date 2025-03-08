@@ -113,11 +113,9 @@ jobs:
           fi
           repo --version
           repo --trace sync -c -j$(nproc --all) --no-tags
-          echo "[+] JetEcho Replace namespace.c driver"
-          GKI_ROOT=$(pwd)
-          
+          GKI_ROOT=$(pwd)          
           echo "[+] JetEcho Replace Makefile"
-          cp $GITHUB_WORKSPACE/KernelSU/Makefile $GKI_ROOT/drivers/block/Makefile
+          cp -f $GITHUB_WORKSPACE/KernelSU/Makefile $GKI_ROOT/drivers/block/Makefile
           echo "[+] JetEcho  all finish !"
           df -h
 
